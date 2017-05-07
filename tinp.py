@@ -11,6 +11,7 @@ Available functions:
     finput: Read input by format string.
     tinput: Read input and split them into several values with
             specified type.
+    einput: Read input and evaluate it.
 """
 
 import re
@@ -32,6 +33,10 @@ class TypeConvertError(Error):
 
 class InputCountNotInRange(Error):
     """Raised if input count is not in the specified range"""
+    pass
+
+class CanNotEvalError(Error):
+    """Raised if input can not be evaluated"""
     pass
 
 
@@ -144,3 +149,32 @@ def tinput(prompt='', typ=str, sep=None, min=1, max=100000):
         msg = 'input count {} is not in range [{}, {}]'
         raise InputCountNotInRange(msg.format(len(values), min, max))
     return values
+
+
+def einput(prompt='', typ=None):
+    """Read input and evaluate it
+
+    This function is a wrapper of builtin function 'input'.
+    User can enter any string can be evaluated to a Python object. 
+    This function is safe because it use ast.literal_eval to eval.
+
+    Args:
+        typ: A function or a callable object which can convert the
+            object(eval result) to wanted type. 
+
+    Returns:
+        A legal Python object.
+    """
+    pure_input = input(prompt)
+    try:
+        obj = literal_eval(pure_input)
+    except Exception as err:
+        msg = 'input "{}" can not be evaluated'
+        raise CanNotEvalError(msg.format(pure_input))
+    if typ:
+        try:
+            return typ(obj)
+        except Exception as err:
+            raise TypeConvertError(err)
+    else:
+        return obj
