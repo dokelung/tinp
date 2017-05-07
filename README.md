@@ -36,3 +36,12 @@ $ git clone https://github.com/dokelung/tinp.git
 please enter 5 integers: 1 2 3 4 5
 (1, 2, 3, 4, 5)
 ```
+
+### einput
+
+```python
+>>> from tinp import einput
+>>> einput(prompt='==> ', typ=float)
+==> 2+2
+4.0
+```
