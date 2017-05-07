@@ -1,9 +1,15 @@
 tinp
 =====
 
+[![Build Status](https://travis-ci.org/dokelung/tinp.png?branch=master)](https://travis-ci.org/dokelung/tinp)
+
 Builtin function ``input`` does not support scan formatted. Also, its return value can only be string. Users should do extra parsing actions and type conversions to get what they want.
 
 This module provides several wrappers of builtin ``input``. They can statisfy above requirements easily.
+
+## Requirements
+
+Python3.3 or later.
 
 ## Installation
 
