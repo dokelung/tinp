@@ -9,6 +9,6 @@ install:
     - pip install coveralls
 script:
   - python test_tinp.py
-  coverage run --source=tinp setup.py test
+  - coverage run --source=tinp setup.py test
 after_success:
-  coveralls
+  - coveralls
