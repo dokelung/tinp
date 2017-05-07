@@ -7,6 +7,10 @@ Builtin function ``input`` does not support scan formatted. Also, its return val
 
 This module provides several wrappers of builtin ``input``. They can statisfy above requirements easily.
 
+## Requirements
+
+Python3.3 or later.
+
 ## Installation
 
 ```bash
