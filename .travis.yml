@@ -6,4 +6,4 @@ python:
   - "3.6"
 cache: pip
 script:
-  - python setup.py test
+  - python test_tinp.py
