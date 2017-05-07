@@ -9,7 +9,7 @@ They can statisfy above requirements easily.
 
 Available functions:
     finput: Read input by format string.
-    tinput: Read input and split them into several values with
+    tinput: Read input and split it into several values with
             specified type.
     einput: Read input and evaluate it.
 """
@@ -117,7 +117,7 @@ def finput(prompt='', fstr='%s', expand_fph=None, whitespace=False, re_escape=Tr
 
 
 def tinput(prompt='', typ=str, sep=None, min=1, max=100000):
-    """Read input and split them into several values with specified type
+    """Read input and split it into several values with specified type
 
     This function is a wrapper of builtin function 'input'.
     User can read several values with specified type from input.
