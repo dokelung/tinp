@@ -5,7 +5,19 @@ Builtin function ``input`` does not support scan formatted. Also, its return val
 
 This module provides several wrappers of builtin ``input``. They can statisfy above requirements easily.
 
-## Example
+## Installation
+
+```bash
+$ pip install tinp
+```
+
+or you can clone this repo directly.
+
+```bash
+$ git clone https://github.com/dokelung/tinp.git
+```
+
+## Examples
 
 ### finput
 
