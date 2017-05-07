@@ -46,7 +46,7 @@ _FORMAT_PLACEHOLDER = {
 }
 
 
-def finput(prompt='', fstr='%s', expand_fph=None, whitespace=False, escape_parenthesis=True):
+def finput(prompt='', fstr='%s', expand_fph=None, whitespace=False, re_escape=True):
     """Read input by format string
     
     This function is a wrapper of builtin function 'input'.
@@ -62,8 +62,7 @@ def finput(prompt='', fstr='%s', expand_fph=None, whitespace=False, escape_paren
             which starts with character '%' with length 2.
         whitespace: A boolean indicates whether the placeholder captures
             unicode whitespace.
-        escape_parenthesis: A boolean indicate the parenthesis occurs in fstr
-            should be escaped.
+        re_escape: A boolean indicate whether escape regular expression syntax.
 
     Returns:
         A tuple of captured values.
@@ -85,13 +84,16 @@ def finput(prompt='', fstr='%s', expand_fph=None, whitespace=False, escape_paren
     fph = _FORMAT_PLACEHOLDER
     if expand_fph is not None:
         fph.update(expand_fph)
-    if escape_parenthesis:
-        rstr = fstr.replace('(', '\(').replace(')', '\)')
+    if re_escape:
+        rstr = re.escape(fstr)
     else:
         rstr = fstr
     regex = '(.+)' if whitespace else '(\S+)'
-    for sp, typ in fph.items():
-        rstr = rstr.replace(sp, regex)
+    for ph, typ in fph.items():
+        if re_escape:
+            rstr = rstr.replace('\\'+ph, regex)
+        else:
+            rstr = rstr.replace(ph, regex)
     types = []
     for idx, c in enumerate(fstr):
         pattern = fstr[idx:idx+2]
