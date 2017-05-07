@@ -19,7 +19,7 @@ $ git clone https://github.com/dokelung/tinp.git
 
 ## Examples
 
-### finput
+### finput: Read input by format string
 
 ```python
 >>> from tinp import finput
@@ -28,7 +28,7 @@ $ git clone https://github.com/dokelung/tinp.git
 (88, 12.3, 'hello')
 ```
 
-### tinput
+### tinput: Read input and split it into several values with specified type
 
 ```python
 >>> from tinp import tinput
@@ -37,7 +37,7 @@ please enter 5 integers: 1 2 3 4 5
 (1, 2, 3, 4, 5)
 ```
 
-### einput
+### einput: Read input and evaluate it
 
 ```python
 >>> from tinp import einput
