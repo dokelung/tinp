@@ -6,8 +6,8 @@ python:
   - "3.6"
 cache: pip
 install:
-  - pip install codecov 
+  - pip install coveralls
 script:
-  - python test_tinp.py
+  - coverage run test_tinp.py
 after_success:
-  - codecov
+  - coveralls
