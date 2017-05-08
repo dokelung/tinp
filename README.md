@@ -2,6 +2,7 @@ tinp
 =====
 
 ![](https://img.shields.io/pypi/v/tinp.svg)
+![](https://img.shields.io/pypi/pyversions/tinp.svg)
 [![Build Status](https://travis-ci.org/dokelung/tinp.png?branch=master)](https://travis-ci.org/dokelung/tinp)
 [![Coverage Status](https://coveralls.io/repos/github/dokelung/tinp/badge.svg?branch=master)](https://coveralls.io/github/dokelung/tinp?branch=master)
 
